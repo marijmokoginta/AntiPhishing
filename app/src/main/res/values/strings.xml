@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">Anti Phishing</string>
+    <string name="app_intro">Lindungi data pribadi anda dari serangan phising</string>
+    <string name="created_by">By : MMACodes</string>
+    <string name="app_title">Cek Keamanan URL Sebelum Membukanya</string>
+    <string name="app_hint">Paste atau ketik url disini</string>
+    <string name="app_scan">Scan URL</string>
+    <string name="fitur_lainnya">Fitur Lainnya</string>
+    <string name="fitur_fw_title">Floating Widget</string>
+    <string name="fitur_fw_subtitle">scan url tanpa membuka aplikasi</string>
+    <string name="fitur_db_title">Default Browser</string>
+    <string name="fitur_db_subtitle">proteksi url sebelum membukanya</string>
+    <string name="fyi_1">Kenali jenis-jenis serangan dalam sebuah tautan</string>
+    <string name="risk_score">Skor Risiko</string>
+    <string name="url">URL</string>
+    <string name="spamming">Spamming</string>
+    <string name="spamming_subtitle">Url ini mengandung spamming yang dapat berisiko membahayakan perangkat anda</string>
+    <string name="malware">Malware</string>
+    <string name="malware_subtitle">Url ini mengandung malware yang dapat berakibat kehilangan data-data pribadi anda</string>
+    <string name="phishing">Phising</string>
+    <string name="phishing_subtitle">Url ini mengandung phising yang berpotensi membocorkan data pribadi anda</string>
+    <string name="suspicious">Mencurigakan</string>
+    <string name="suspicious_subtitle">Url ini mencurigakan dan disarankan untuk tidak membukanya</string>
+    <string name="adult">Konten Dewasa</string>
+    <string name="adult_subtitle">Url ini mengandung konten dewasa</string>
+    <string name="category">Category</string>
+    <string name="category_subtitle">Category website tujuan dari url ini</string>
+    <string name="domain_age">Usia Domain</string>
+    <string name="page_size">Besar Halaman</string>
+    <string name="no">Tidak</string>
+    <string name="yes">Ya</string>
+    <string name="scan_result">Hasil Scan</string>
+    <string name="spamming_detected">Url terdeteksi spamming</string>
+    <string name="malware_detected">Url terdeteksi malware</string>
+    <string name="phishing_detected">Url terdeteksi phising</string>
+    <string name="suspicious_detected">Url terdeteksi mencurigakan</string>
 </resources>

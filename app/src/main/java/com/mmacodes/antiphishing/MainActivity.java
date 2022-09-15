@@ -1,10 +1,8 @@
 package com.mmacodes.antiphishing;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,13 +12,10 @@ import android.widget.Toast;
 
 import com.mmacodes.antiphishing.api.service.IPQSService;
 import com.mmacodes.antiphishing.model.ipqs.PhishingAnalyze;
-import com.mmacodes.antiphishing.model.virus_total.APIResponse;
-import com.mmacodes.antiphishing.api.service.VirusTotalService;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -33,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView show;
     private Button btnCheck;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
-
-
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void onClick(View view) throws UnsupportedEncodingException {
         String url = URLEncoder.encode(this.url.getText().toString(), String.valueOf(StandardCharsets.UTF_8));
         IPQSService.ipqsEndpoint().analyzeUrl(url)
