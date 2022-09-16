@@ -1,6 +1,9 @@
 package com.mmacodes.antiphishing.model.ipqs;
 
-public class PhishingAnalyze {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class PhishingAnalyze implements Parcelable {
     private String message;
     private boolean success;
     private boolean unsafe;
@@ -22,6 +25,42 @@ public class PhishingAnalyze {
     private String category;
     private DomainAge domain_age;
     private String request_id;
+
+    protected PhishingAnalyze(Parcel in) {
+        message = in.readString();
+        success = in.readByte() != 0;
+        unsafe = in.readByte() != 0;
+        domain = in.readString();
+        ip_address = in.readString();
+        server = in.readString();
+        content_type = in.readString();
+        status_code = in.readInt();
+        page_size = in.readInt();
+        domain_rank = in.readInt();
+        dns_valid = in.readByte() != 0;
+        parking = in.readByte() != 0;
+        spamming = in.readByte() != 0;
+        malware = in.readByte() != 0;
+        phishing = in.readByte() != 0;
+        suspicious = in.readByte() != 0;
+        adult = in.readByte() != 0;
+        risk_score = in.readInt();
+        category = in.readString();
+        domain_age = in.readParcelable(DomainAge.class.getClassLoader());
+        request_id = in.readString();
+    }
+
+    public static final Creator<PhishingAnalyze> CREATOR = new Creator<PhishingAnalyze>() {
+        @Override
+        public PhishingAnalyze createFromParcel(Parcel in) {
+            return new PhishingAnalyze(in);
+        }
+
+        @Override
+        public PhishingAnalyze[] newArray(int size) {
+            return new PhishingAnalyze[size];
+        }
+    };
 
     public String getMessage() {
         return message;
@@ -216,5 +255,35 @@ public class PhishingAnalyze {
                 ", domainAge=" + domain_age +
                 ", requestId='" + request_id + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(message);
+        parcel.writeByte((byte) (success ? 1 : 0));
+        parcel.writeByte((byte) (unsafe ? 1 : 0));
+        parcel.writeString(domain);
+        parcel.writeString(ip_address);
+        parcel.writeString(server);
+        parcel.writeString(content_type);
+        parcel.writeInt(status_code);
+        parcel.writeInt(page_size);
+        parcel.writeInt(domain_rank);
+        parcel.writeByte((byte) (dns_valid ? 1 : 0));
+        parcel.writeByte((byte) (parking ? 1 : 0));
+        parcel.writeByte((byte) (spamming ? 1 : 0));
+        parcel.writeByte((byte) (malware ? 1 : 0));
+        parcel.writeByte((byte) (phishing ? 1 : 0));
+        parcel.writeByte((byte) (suspicious ? 1 : 0));
+        parcel.writeByte((byte) (adult ? 1 : 0));
+        parcel.writeInt(risk_score);
+        parcel.writeString(category);
+        parcel.writeParcelable(domain_age, i);
+        parcel.writeString(request_id);
     }
 }

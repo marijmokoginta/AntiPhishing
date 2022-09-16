@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/border.xml" value="0.1725" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/button.xml" value="0.1285" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/ic_internet.xml" value="0.1285" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/ic_scan.xml" value="0.1285" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/icon.xml" value="0.1285" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/input_field.xml" value="0.1725" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/drawable/rounded_circle.xml" value="0.1725" />
+        <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/layout/activity_analyze_result.xml" value="0.25" />
         <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/layout/activity_browser.xml" value="0.22447916666666667" />
         <entry key="..\:/Dev/GCC IT 22 MAP/AntiPhishing/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
       </map>

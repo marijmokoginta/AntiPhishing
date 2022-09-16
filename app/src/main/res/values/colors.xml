@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#012B51</color>
+    <color name="btn_color">#0957F1</color>
     <color name="success">#2EC96A</color>
+    <color name="border_color">#B9EDCD</color>
     <color name="danger">#DC3545</color>
     <color name="purple_light">#7167EC</color>
-    <color name="secondary">#262626</color>
+    <color name="secondary">#9C9C9C</color>
+    <color name="secondary_dark">#343434</color>
     <color name="white">#fff</color>
 </resources>

@@ -3,6 +3,7 @@ package com.mmacodes.antiphishing;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private EditText url;
-    private TextView show;
     private Button btnCheck;
 
     @Override
@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        url = findViewById(R.id.url);
-        show = findViewById(R.id.tampilInformasiUrl);
+        url = findViewById(R.id.urlInput);
         btnCheck = findViewById(R.id.btnCheck);
 
         btnCheck.setOnClickListener(view -> {
@@ -47,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(View view) throws UnsupportedEncodingException {
-        String url = URLEncoder.encode(this.url.getText().toString(), String.valueOf(StandardCharsets.UTF_8));
-        IPQSService.ipqsEndpoint().analyzeUrl(url)
+        String urlEncoder = URLEncoder.encode(this.url.getText().toString(), String.valueOf(StandardCharsets.UTF_8));
+        IPQSService.ipqsEndpoint().analyzeUrl(urlEncoder)
                 .enqueue(new Callback<PhishingAnalyze>() {
                     @Override
                     public void onResponse(@NonNull Call<PhishingAnalyze> call, @NonNull Response<PhishingAnalyze> response) {
@@ -56,13 +55,16 @@ public class MainActivity extends AppCompatActivity {
                             PhishingAnalyze phishingAnalyze = response.body();
                             assert phishingAnalyze != null;
                             if (phishingAnalyze.isSuccess()) {
-                                show.setText(phishingAnalyze.toString());
                                 Toast.makeText(getApplicationContext(), phishingAnalyze.getMessage(), Toast.LENGTH_SHORT).show();
+                                Intent toAnalyze = new Intent(getApplicationContext(), AnalyzeResult.class);
+                                toAnalyze.putExtra("ANALYZE_RESULT", phishingAnalyze);
+                                toAnalyze.putExtra("URL_SCANNED", url.getText().toString());
+                                startActivity(toAnalyze);
                             } else {
-                                show.setText(phishingAnalyze.getMessage());
+                                Toast.makeText(getApplicationContext(), phishingAnalyze.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            show.setText(Objects.requireNonNull(response.toString()));
+                            Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
